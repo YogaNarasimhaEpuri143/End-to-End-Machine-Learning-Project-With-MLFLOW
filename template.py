@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
-import logging
-
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
+from mlproject import logger
 
 project_name = "mlproject"
 
@@ -35,14 +33,14 @@ for filepath in list_of_files:
 
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
-        logging.info(f"Creating directory; {filedir} for the file: {filename}")
+        logger.info(f"Creating directory; {filedir} for the file: {filename}")
     
     if (not os.path.exists(filepath)):
         with open(filepath, "w"):
             pass
-            logging.info(f"Creating empty file: {filepath}")
+            logger.info(f"Creating empty file: {filepath}")
     else:
-        logging.info(f"{filename} is already exists")
+        logger.info(f"{filename} is already exists")
 
 
 """

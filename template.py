@@ -49,4 +49,10 @@ for filepath in list_of_files:
     1. Project Structure.
     2. Github won't save the empty folder, so .gitkeep file created. (.github will use for deployements using github actions).
     3. -e ., look for setup.py (Inform about the information of local package)
+    4. package_dic, map b/w package source directory structure and importable namespace.
 """
+
+# package_dir = {key: value} :-> key (import package name), value=(directory path relative to the root directory).
+# mlproject :- project_name.
+# 
+

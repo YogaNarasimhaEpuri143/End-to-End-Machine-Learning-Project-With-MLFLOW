@@ -1,25 +1,26 @@
 from mlproject.config.configuration import ConfigurationManager
-from mlproject.components.data_transformation import DataTransformation
+from mlproject.components.model_trainer import ModelTrainer
 from mlproject import logger
 
-STAGE_NAME = "Data Transformation stage"
+STAGE_NAME = "Model Trainer stage"
 
-class DataTransformationTrainingPipeline:
+class ModelTrainingPipeline:
     def __init__(self):
         pass
 
     def main(self):
         config = ConfigurationManager()
-        data_transformation_config = config.get_data_transformation_config()
-        data_transformation = DataTransformation(data_transformation_config)
-        data_transformation.transform_data()
+        model_trainer_config = config.get_data_transformation_config()
+        model = ModelTrainer(model_trainer_config)
+        model.train()
 
 if __name__ == "__main__":
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = DataTransformationTrainingPipeline()
+        obj = ModelTrainingPipeline()
         obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nX==========X")
     except Exception as e:
         logger.exception(e)
         raise e
+    

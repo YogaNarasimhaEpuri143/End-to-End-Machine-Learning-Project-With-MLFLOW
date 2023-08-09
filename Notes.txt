@@ -1,0 +1,27 @@
+from ensure import ensure_annotations
+@ensure_annotations
+
+Data classes.
+
+Special Methods :- __init__, __repr__, __eq__, __ne__, __gt__, __lt__
+
+from dataclasses import dataclass, astuple, asdict
+
+@dataclass(frozen=True, order=True)
+class Comment:
+    id: int = field() # In Backside it will change to filed()
+    text: str = field(default="")
+    replies: list[int] = field(default_factory=[], compare=False, repr=False, hash=False)
+
+1. field() function is used to customize the Behavior of the attribute in the dataclasses.
+2. In id attribute, we didn't provided any default value, so during the instance of the Comment class, should must provide the id value.
+3. frozen = True, makes the Object instance of the class as immutable.
+4. order = True, implement all the required methods, to compare the Objects of class. (__eq__, __lt__, __gt__, __le__, __ge__)
+
+def main():
+    comment = Comment(1, 'I just Subscribed Now!')
+    print(inspect.getmembers(Comment, inspect.isfunction))  #  print all the functions of the class.
+    print(dataclasses.replace(Comment, id = 3))
+
+The dataclass decorator, just simplifies the creation of the classes by automatically generating special methods lie __init__, __repr__ ...
+

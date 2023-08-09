@@ -12,3 +12,8 @@
 8. Update the main.py
 9. Update the app.py
 
+config -> config_entity(dataclass) -> configuration -> data_ingestion.py -> stage_01_data_ingeation.py -> main.py
+mlproject/constatns/__init__.py :-> File path constants.
+
+https://coursera.org/share/8a27e804e898ef9a9dfde9c61e641189
+
